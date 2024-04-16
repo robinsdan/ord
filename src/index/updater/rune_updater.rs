@@ -436,7 +436,7 @@ impl<'a, 'tx, 'client> RuneUpdater<'a, 'tx, 'client> {
     for input in &tx.input {
       if let Some(guard) = self
         .outpoint_to_balances
-        .remove(&input.previous_output.store())?
+        .get(&input.previous_output.store())?
       {
         let buffer = guard.value();
         let mut i = 0;
